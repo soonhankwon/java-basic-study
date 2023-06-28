@@ -11,11 +11,13 @@ public class Customer {
     }
 
     public void order(int price) {
+        System.out.println(this.name + " order");
         paid(price);
     }
 
     public void paid(int price) {
         this.money -= price;
+        System.out.println(this.name + " paid" + price);
     }
 
     public void showInfo() {
