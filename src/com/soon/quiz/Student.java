@@ -25,7 +25,7 @@ public class Student {
     }
 
     public void printTotalScore() {
-        System.out.println(this.name + " total score : " + subjectScoreMap.values().stream()
+        System.out.println(this.id + " " + this.name + " total score : " + subjectScoreMap.values().stream()
                 .mapToInt(Integer::intValue)
                 .sum());
     }
