@@ -22,5 +22,18 @@ public class BookArrayTest {
         books[3].setTitle("SLAMDUNK");
 
         Arrays.stream(library).forEach(Book::showBookInfo);
+        String str1 = "test";
+        String str2 = "test";
+        String str3 = new String("test");
+        String str4 = new String("test");
+        System.out.println(str1 == str2);
+        System.out.println(str3 == str4);
+        System.out.println(str1.hashCode() + " : " + str3.hashCode() + " : " + str4.hashCode());
+
+        Book book1 = new Book("1", "1");
+        Book book2 = new Book("1", "1");
+
+        System.out.println(book1.hashCode());
+        System.out.println(book2.hashCode());
     }
 }
