@@ -21,5 +21,9 @@ public class StudentApp {
         soonhan.printSubject();
         soonhan.printFilteredSubject();
         soonhan.printTotalScore();
+
+        CompanySingleton instance = CompanySingleton.getInstance();
+        CompanySingleton instance2 = CompanySingleton.getInstance();
+        System.out.println(instance == instance2);
     }
 }
