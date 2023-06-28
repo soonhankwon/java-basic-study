@@ -1,6 +1,7 @@
 package com.soon.object;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Student {
 
@@ -44,5 +45,18 @@ public class Student {
                 .mapToInt(Subject::getScore)
                 .sum();
         System.out.println(sum);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return studentId == student.studentId && Objects.equals(studentName, student.studentName) && Objects.equals(studentAddress, student.studentAddress) && Objects.equals(subjects, student.subjects);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(studentId, studentName, studentAddress, subjects);
     }
 }
