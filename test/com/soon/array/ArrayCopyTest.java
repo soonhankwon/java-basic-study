@@ -1,15 +1,12 @@
 package com.soon.array;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
 import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ArrayCopyTest {
-
     @Test
     void thinCopy() {
         Book[] books = new Book[5];
@@ -20,10 +17,12 @@ public class ArrayCopyTest {
 
         System.arraycopy(books, 0 , copyBooks, 0, 5);
 
-        // 객체 주소 값을 복사함으로 ==
+        // 객체 주소 값을 복사하지만 books 와 copybooks 의 객체 주소값은 다르다.
+        assertThat(copyBooks).isNotSameAs(books);
+        // 객체 배열 요소들의 값은 같다.
         assertThat(copyBooks).isEqualTo(books);
 
-        // 객체 주소 값을 복사함으로 원본 객체 배열 수정시 값은 값이 바뀜
+        // 객체 주소 값을 복사함으로 원본 객체 배열 요소 수정시 해당 객체를 참조하는 복사 배열 요소 값이 바뀜
         books[3].setTitle("SLAMDUNK");
         assertThat(copyBooks[3].getTitle()).isEqualTo("SLAMDUNK");
     }
@@ -38,7 +37,7 @@ public class ArrayCopyTest {
         IntStream.range(0, books.length)
                 .forEach(i -> copyBooks[i] = new Book(books[i].getTitle(), books[i].getAuthor()));
 
-        // 값만 복사하고 객체 주소값은 다름
+        // 원본 배열 객체 요소의 값만 복사하고 객체 주소값은 다름
         assertThat(copyBooks).isNotEqualTo(books);
 
         // 객체 주소값이 다르므로 원본 배열의 수정에 영향을 받지 않는다. 깊은 복사
