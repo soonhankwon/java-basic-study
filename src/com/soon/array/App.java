@@ -14,5 +14,13 @@ public class App {
                 .reduce(1, (a, b) -> a * b);
 
         System.out.println(total);
+
+        char[] alphabets = new char[26];
+        char ch = 'A';
+        for (char alphabet : alphabets) {
+            alphabet = ch;
+            ch++;
+            System.out.print(alphabet + " ");
+        }
     }
 }
