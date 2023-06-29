@@ -26,4 +26,8 @@ public class FGolf implements Car {
     private void specialBoostEngineGolf() {
         System.out.println("FGolf.specialBoostEngineGolf");
     }
+
+    public void specialGPS() {
+        System.out.println("FGolf.specialGPS");
+    }
 }
