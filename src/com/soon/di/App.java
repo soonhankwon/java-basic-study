@@ -12,6 +12,8 @@ public class App {
         DiContainer diContainer = new DiContainer();
         diContainer.init();
         App app = new App(new TestConfig(diContainer));
+        App app2 = new App(new TestConfig(diContainer));
         System.out.println(app.bean.getClass());
+        System.out.println(app.bean == app2.bean);
     }
 }
