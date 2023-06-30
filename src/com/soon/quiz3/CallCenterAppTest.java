@@ -15,6 +15,6 @@ public class CallCenterAppTest {
 //        Scheduler scheduler = new RoundRobin();
         Scheduler scheduler = new PriorityAllocation();
         customers.forEach(scheduler::getNextCall);
-        scheduler.sendCallToAgent(new Agent(Grade.VIP));
+        scheduler.sendCallToAgent(new Agent(AgentLevel.LV3));
     }
 }

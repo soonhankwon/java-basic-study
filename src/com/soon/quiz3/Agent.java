@@ -2,16 +2,13 @@ package com.soon.quiz3;
 
 import java.util.ArrayList;
 
-import static com.soon.quiz3.Grade.GOLD;
-import static com.soon.quiz3.Grade.VIP;
-
 public class Agent {
 
     private ArrayList<Customer> customerLine = new ArrayList<>();
-    private Grade grade;
+    private AgentLevel level;
 
-    public Agent(Grade grade) {
-        this.grade = grade;
+    public Agent(AgentLevel level) {
+        this.level = level;
     }
 
     public void getCustomerCall(Customer customer) throws InterruptedException {
@@ -22,11 +19,11 @@ public class Agent {
     }
 
     public void endCall() throws InterruptedException {
-        if(this.grade == VIP)
+        if(this.level == AgentLevel.LV3)
+            Thread.sleep(500);
+        if(this.level == AgentLevel.LV2)
             Thread.sleep(1000);
-        if(this.grade == GOLD)
-            Thread.sleep(2000);
         else
-            Thread.sleep(3000);
+            Thread.sleep(2000);
     }
 }
