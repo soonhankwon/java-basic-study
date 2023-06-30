@@ -11,4 +11,9 @@ public class CompleteCalc extends Calculator {
     public int divide(int num1, int num2) {
         return num1 / num2;
     }
+
+    @Override
+    public void descriptionV2() {
+        System.out.println("OVERRIDE INTERFACE DEFAULT METHOD");
+    }
 }
