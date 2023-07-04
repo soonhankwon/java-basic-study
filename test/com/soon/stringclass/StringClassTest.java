@@ -28,6 +28,7 @@ public class StringClassTest {
         String spring = "spring";
         java = java.concat(spring);
         // 새 객체가 생성된다. 기존 hashcode 의 String 객체는 GC의 대상이 된다.
+        // 하지만 상수풀에 들어간 문자열은 보통 프로그램 전반에서 사용되어 프로그램 종료시 GC의 대상이 되는 경우가 많다.
         assertThat(System.identityHashCode(java)).isNotEqualTo(hashCode);
     }
 
