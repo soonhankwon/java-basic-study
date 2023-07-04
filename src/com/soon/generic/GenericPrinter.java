@@ -1,6 +1,6 @@
 package com.soon.generic;
 
-public class GenericPrinter<T> {
+public class GenericPrinter<T extends Material> {
 
     private T material;
 
@@ -12,7 +12,7 @@ public class GenericPrinter<T> {
         this.material = material;
     }
 
-    public void print() {
-        System.out.println(this.material);
+    public void doPrinting() {
+        material.doPrinting();
     }
 }
