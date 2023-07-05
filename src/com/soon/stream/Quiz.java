@@ -23,6 +23,7 @@ public class Quiz {
         System.out.println(travelCompany.getPackageTotalCost());
         System.out.println(travelCompany.findCustomerByName("이순신"));
         System.out.println(travelCompany.findCustomerByAgeMore(10));
+        travelCompany.printCustomerNameByAgeMore(20);
     }
 
     private static class TravelCompany {
@@ -50,6 +51,13 @@ public class Quiz {
             return customers.stream()
                     .filter(c -> c.getAge() >= age)
                     .collect(Collectors.toList());
+        }
+
+        public void printCustomerNameByAgeMore(int age) {
+            customers.stream()
+                    .filter(c -> c.getAge() >= age)
+                    .map(Customer::getName)
+                    .forEach(System.out::println);
         }
     }
 
