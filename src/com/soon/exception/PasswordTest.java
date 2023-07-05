@@ -6,9 +6,6 @@ public class PasswordTest {
 
     private String password;
 
-    public PasswordTest() {
-    }
-
     public PasswordTest(String password) {
         if (password == null) {
             throw new PasswordException(CustomErrorCode.CODE101);
@@ -29,13 +26,15 @@ public class PasswordTest {
     }
 
     public static void main(String[] args) {
+        MyLogger myLogger = MyLogger.getInstance();
+
         System.out.println("TRY INPUT PASSWORD");
         Scanner scanner = new Scanner(System.in);
         try {
             PasswordTest test = new PasswordTest(scanner.nextLine());
             System.out.println("PASSWORD : " + test.getPassword());
         } catch (PasswordException e) {
-            System.out.println(e.getCustomCode().getMessage());
+            myLogger.warning(e.getCustomCode().getMessage());
             main(new String[]{});
         }
         scanner.close();
