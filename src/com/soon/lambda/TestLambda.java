@@ -1,7 +1,5 @@
 package com.soon.lambda;
 
-import static com.soon.lambda.TestLambda.showMyString;
-
 @FunctionalInterface
 interface PrintString {
     void showString(String str);
