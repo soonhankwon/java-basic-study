@@ -14,7 +14,7 @@ class Library {
 
     public synchronized String lendBook() throws InterruptedException {
         Thread t = Thread.currentThread();
-        if(shelf.size() == 0) {
+        while(shelf.size() == 0) {
             System.out.println(t.getName() + "waiting start");
             wait();
             System.out.println(t.getName() + "waiting end");
@@ -55,9 +55,19 @@ public class LibraryMain {
         Student student2 = new Student();
         Student student3 = new Student();
         Student student4 = new Student();
+        Student student5 = new Student();
+        Student student6 = new Student();
+        Student student7 = new Student();
+        Student student8 = new Student();
+        Student student9 = new Student();
         student.start();
         student2.start();
         student3.start();
         student4.start();
+        student5.start();
+        student6.start();
+        student7.start();
+        student8.start();
+        student9.start();
     }
 }
